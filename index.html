@@ -12,10 +12,10 @@
       function tick() {
         const total = Math.floor((Date.now() - start) / 1000);
         const hours = Math.floor(total / 3600);
-        const minutes = Math.floor(total / 60);
+        const minutes = Math.floor((total % 3600) / 60);
         const seconds = total % 60;
 
-        display.textContent = `${hours}:${String(minutes).padstart(5, "0")}:${String(seconds).padStart(2, "0")}`;
+        display.textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
       }
 
       tick();
