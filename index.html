@@ -15,7 +15,7 @@
         const minutes = Math.floor(total / 60);
         const seconds = total % 60;
 
-        display.textContent = `${hours}:${String(minutes).padstart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        display.textContent = `${hours}:${String(minutes).padstart(5, "0")}:${String(seconds).padStart(2, "0")}`;
       }
 
       tick();
