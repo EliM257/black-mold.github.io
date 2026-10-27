@@ -10,7 +10,7 @@
   const start = Date.now();   // recorded once, when the page loads
 
   function tick() {
-    const minutes = Math.floor((Date.now() - start) / 1000);
+    const seconds = Math.floor((Date.now() - start) / 1000);
     display.textContent = seconds;
     const minutes = Math.floor((Date.now() - start) / 60000);
     display.textContent = minutes;
