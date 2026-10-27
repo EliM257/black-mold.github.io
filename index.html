@@ -3,19 +3,19 @@
     <title>Black Mold</title>
   </head>
   <body>
-  <h1 id="timer">0</h1>
+<h1 id="elapsed">0</h1>
 
-  <script>
-    let seconds = 0;
-    let intervalId = null;
-    const display = document.getElementById("timer");
+<script>
+  const display = document.getElementById("elapsed");
+  const start = Date.now();   // recorded once, when the page loads
 
-    function tick() {
-      seconds++;
-      display.textContent = seconds;
-      intervalId = setInterval(tick, 1000);
-    }
-  
-  </script>
+  function tick() {
+    const seconds = Math.floor((Date.now() - start) / 1000);
+    display.textContent = seconds;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+</script>
   </body>
 </html>
