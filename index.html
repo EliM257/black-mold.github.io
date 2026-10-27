@@ -3,7 +3,7 @@
     <title>Black Mold</title>
   </head>
   <body>
-<h1 id="elapsed">0</h1>
+<h1 id="elapsed">0:00</h1>
 
 <script>
   const display = document.getElementById("elapsed");
@@ -15,9 +15,9 @@
     display.textContent = seconds;
 
     if (seconds === 60) {
-      minutes++};
+      minutes++;
       seconds = 0;
- 
+    }
   tick();
   setInterval(tick, 1000);
 </script>
