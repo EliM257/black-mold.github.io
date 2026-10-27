@@ -8,7 +8,7 @@
     <script>
       const display = document.getElementById("elapsed");
       const start = Date.now();
-      const multiplier = 1
+      let multiplier = 1
 
       function tick() {
         let total = Math.floor((Date.now() - start) / (1000 / multiplier));
