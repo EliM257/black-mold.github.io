@@ -3,20 +3,20 @@
     <title>Black Mold</title>
   </head>
   <body>
-    <h1 id="clock">--:--:--</h1>
+   <h1 id="clock">00:00:00</h1>
 
 <script>
   const clock = document.getElementById("clock");
+  const start = Date.now();
 
   function tick() {
-    const now = new Date();
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    const s = String(now.getSeconds()).padStart(2, "0");
+    const total = Math.floor((Date.now() - start) / 1000);
+    const h = String(Math.floor(total / 3600)).padStart(2, "0");
+    const m = String(Math.floor((total % 3600) / 60)).padStart(2, "0");
+    const s = String(total % 60).padStart(2, "0");
     clock.textContent = `${h}:${m}:${s}`;
   }
 
-  tick();                  // show immediately instead of waiting 1 second
   setInterval(tick, 1000);
 </script>
   </body>
