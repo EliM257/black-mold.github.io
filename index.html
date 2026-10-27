@@ -9,16 +9,15 @@
   const display = document.getElementById("elapsed");
   const start = Date.now();   // recorded once, when the page loads
 
+      let minutes = 0;
   function tick() {
     const seconds = Math.floor((Date.now() - start) / 1000);
     display.textContent = seconds;
 
-    let minutes = 0;
     if (seconds === 60) {
       minutes++};
-  if (seconds === 60) clearInterval(tick, 1000);  
-  
-    
+      seconds = 0;
+ 
   tick();
   setInterval(tick, 1000);
 </script>
