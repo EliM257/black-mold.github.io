@@ -3,15 +3,17 @@
     <title>Black Mold</title>
   </head>
   <body>
-<h1 id="elapsed">0</h1>
+<h1 id="elapsed">00:00</h1>
 
 <script>
   const display = document.getElementById("elapsed");
   const start = Date.now();   // recorded once, when the page loads
 
   function tick() {
-    const seconds = Math.floor((Date.now() - start) / 1000);
+    const minutes = Math.floor((Date.now() - start) / 1000);
     display.textContent = seconds;
+    const minutes = Math.floor((Date.now() - start) / 60000);
+    display.textContent = minutes;
   }
 
   tick();
