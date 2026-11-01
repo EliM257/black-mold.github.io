@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-image: url("ethanwinters.png");
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 100vh;
