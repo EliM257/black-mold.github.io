@@ -3,24 +3,42 @@
     <title>Black Mold</title>
   </head>
   <body>
-    <h1 id="elapsed">00:00:00</h1>
-
+    <h1 id="elapsed">00:000:00:00:00</h1>
+    <input type="text" id="box" placeholder="Enter a number">
+    <p id="out">multiplier = 1</p>
     <script>
-      const display = document.getElementById("elapsed");
-      const start = Date.now();
-      let multiplier = 2
+const display = document.getElementById("elapsed");
+      const box = document.getElementById("box");
+      const out = document.getElementById("out");
+      let multiplier = 1;
+      let simSeconds = 0;       // the sped-up clock, in seconds
+      let last = Date.now();    // time of the previous tick
+
+      box.addEventListener("input", () => {
+        const n = Number(box.value);
+        if (box.value.trim() !== "" && !Number.isNaN(n)) {
+          multiplier = n;
+          out.textContent = `multiplier = ${multiplier}`;
+        }
+      });
 
       function tick() {
-        let total = Math.floor((Date.now() - start) / (1000 / multiplier));
-        const hours = Math.floor(total / 3600);
+        const now = Date.now();
+        simSeconds += ((now - last) / 1000) * multiplier;
+        last = now;
+
+        const total = Math.floor(simSeconds);
+        const years = Math.floor(total / 31536000)
+        const days = Math.floor((total % 31536000) / 86400);
+        const hours = Math.floor((total % 86400) / 3600);
         const minutes = Math.floor((total % 3600) / 60);
         const seconds = total % 60;
 
-        display.textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        display.textContent = `${(years)}:${String(days).padStart(3, "00")}:${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
       }
 
       tick();
-      setInterval(tick, (1000 / multiplier));
+      setInterval(tick, 100);   // fixed rate; the multiplier scales how much each tick adds
     </script>
   </body>
 </html>
