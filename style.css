@@ -1,5 +1,9 @@
 body {
-     margin: 0;
-    background-image: url("ethanwinters.png");
-    text-align: center;
+  margin: 0;
+  background-image: url("ethanwinters.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  text-align: center;
 }
